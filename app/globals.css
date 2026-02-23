@@ -117,7 +117,9 @@
 }
 
 html {
-  zoom: 0.9; /* compensate Chrome at 125% */
+  /* NOTE: Do NOT use zoom here — it breaks Radix UI portal positioning (Select, Popover, Dialog, etc.)
+     because getBoundingClientRect() returns unscaled coords while the portal renders at scaled coords.
+     If you need to compensate for browser zoom, set it in the OS/browser settings instead. */
 }
 
 
