@@ -147,12 +147,12 @@ const AddCarForm = () => {
 
       setValue("make", carDetails.make);
       setValue("model", carDetails.model);
-      setValue("year", carDetails.year.toString());
+      setValue("year", (carDetails.year || "").toString().replace(/[^0-9]/g, '') || "");
       setValue("color", carDetails.color);
       setValue("bodyType", carDetails.bodyType);
       setValue("fuelType", carDetails.fuelType);
-      setValue("price", carDetails.price);
-      setValue("mileage", carDetails.mileage);
+      setValue("price", (carDetails.price || "").toString().replace(/[^0-9.]/g, '') || "");
+      setValue("mileage", (carDetails.mileage || "").toString().replace(/[^0-9.]/g, '') || "");
       setValue("transmission", carDetails.transmission);
       setValue("description", carDetails.description);
 
@@ -189,9 +189,9 @@ const AddCarForm = () => {
 
     const carData = {
       ...data,
-      year: parseInt(data.year),
-      price: parseFloat(data.price),
-      mileage: parseInt(data.mileage),
+      year: parseInt(data.year.toString().replace(/[^0-9]/g, '')),
+      price: parseFloat(data.price.toString().replace(/[^0-9.]/g, '')),
+      mileage: parseInt(data.mileage.toString().replace(/[^0-9]/g, '')),
       seats: data.seats ? parseInt(data.seats) : null,
     };
 

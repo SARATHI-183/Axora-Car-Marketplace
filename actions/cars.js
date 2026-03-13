@@ -7,7 +7,7 @@ import { GoogleGenerativeAI, SchemaType } from "@google/generative-ai";
 import { cookies } from "next/headers";
 import { v4 as uuidv4 } from "uuid";
 import { revalidatePath } from "next/cache";
-import { serializedCarData } from "@/lib/helper";
+import { serializeCarData } from "@/lib/helpers";
 import { success } from "zod";
 
 async function fileToBase64(file) {
@@ -238,7 +238,7 @@ export async function getCars(search = "") {
             },
         });
 
-        const serializedCars = cars.map(serializedCarData);
+        const serializedCars = cars.map(serializeCarData);
 
         return {
             success: true,
