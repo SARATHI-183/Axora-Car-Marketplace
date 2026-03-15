@@ -1,9 +1,9 @@
 export const dynamic = "force-dynamic";
 
 import { notFound } from "next/navigation";
-import { Sidebar } from "./admin/_components/sidebar";
+import { SideBar } from "./admin/_components/sideBar";
 import { getAdmin } from "@/actions/admin";
-import Header from "@/components/header";
+import Header from "@/components/Header";
 
 export default async function AdminLayout({ children }) {
   const admin = await getAdmin();
@@ -17,7 +17,7 @@ export default async function AdminLayout({ children }) {
     <div className="h-full">
       <Header isAdminPage={true} />
       <div className="flex h-full w-56 flex-col top-20 fixed inset-y-0 z-50">
-        <Sidebar />
+        <SideBar/>
       </div>
       <main className="md:pl-56 pt-[80px] h-full">{children}</main>
     </div>
