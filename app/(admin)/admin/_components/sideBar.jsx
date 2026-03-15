@@ -28,7 +28,7 @@ const routes = [
   },
 ];
 
-const SideBar = () => {
+const Sidebar = () => {
 
   const pathname = usePathname();
 
@@ -73,4 +73,4 @@ const SideBar = () => {
   )
 }
 
-export default SideBar
+export default Sidebar
